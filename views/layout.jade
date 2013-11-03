@@ -1,0 +1,17 @@
+!!! 5
+html(lang="en")
+  head
+    link(rel="icon" type="image/png" href="/favicon.ico")
+    meta(charset="utf-8")
+    title
+      block title
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js")
+    script.
+      if (window.self !== window.top) {
+        top.location = 'http://www.gointothewoods.com';
+      }
+    != js('header')
+    block head
+  body
+    #fb-root
+    block body
