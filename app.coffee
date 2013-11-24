@@ -3,6 +3,8 @@ connect_assets = require 'connect-assets'
 express = require 'express'
 jade = require 'jade'
 async = require 'async'
+reports = require './api/reports.coffee'
+
 _ = require 'underscore'
 _.str = require 'underscore.string'
 
@@ -33,6 +35,10 @@ app.configure 'production', ->
 
 app.get '/', (req, res) ->
   res.render 'snow', {}
+
+
+app.get '/report/:name', (req, res) ->
+  reports[req.params.name](req, res)
 
 server = app.listen(process.env.PORT || 8091)
 console.log 'Server started on port %s', server.address().port
